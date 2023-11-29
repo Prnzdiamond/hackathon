@@ -64,7 +64,7 @@ function mainConDrop(x, span) {
   }
 }
 
-function dropDownContent(span, x, y) {
+function dropDownContent(x, y) {
   let element = document.getElementById(x);
   let element2 = document.getElementById(y);
   element.classList.toggle("view-block");
@@ -73,7 +73,7 @@ function dropDownContent(span, x, y) {
     element2.classList.remove("view-block");
   }
 
-  makeFocused(span, x);
+
 }
 
 function removeParent(x) {
@@ -120,12 +120,12 @@ function removeClass(span, x) {
   removeAllClas();
 }
 
-function removeAllClas() {
-  let element = document.querySelectorAll(".focus");
-  for (let i = 0; i < element.length; i++) {
-    element[i].classList.remove("focus");
-  }
-}
+// function removeAllClas() {
+//   let element = document.querySelectorAll(".focus");
+//   for (let i = 0; i < element.length; i++) {
+//     element[i].classList.remove("focus");
+//   }
+// }
 
 let count;
 
@@ -250,22 +250,9 @@ function toggleSVG(span,i) {
     );
   }
 
-  if (span.querySelector("svg").getAttribute("viewBox") == "0 0 32 32") {
-  }
+  
 }
 
-function makeFocused(span, x) {
-  let element = document.getElementById(x);
-  let elementValue = window
-    .getComputedStyle(element)
-    .getPropertyValue("display");
-  console.log(element, elementValue);
-  if (elementValue == "block" || elementValue == "flex") {
-    span.classList.add("focus");
-  } else {
-    span.classList.remove("focus");
-  }
-}
 
 // key board users
   function handleKeyPress(event, callback) {

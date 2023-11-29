@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css" />
   </head>
 
@@ -73,8 +76,12 @@
           <input tabindex="0" type="text" name="" placeholder="Search" id="" />
         </div>
         <div class="col-2 not-bar">
-          <div  class="bell-div">
-            <span aria-label="Alert notification: your alerts are shown, click to see your alerts." tabindex="0" id="alert-bell" onkeydown="handleKeyPress(event,dropDownContent.bind(null,this,'alert-bx','profile-sett'))" onclick="dropDownContent(this,'alert-bx','profile-sett')">
+          <div class="bell-div">
+            <span 
+            role="alert"
+            aria-controls="alert-bx"
+            aria-haspopup="true"
+            tabindex="0" onclick="dropDownContent('alert-bx','profile-sett')" onkeydown="handleKeyPress(event,dropDownContent.bind(null,'alert-bx','profile-sett'))" aria-label="Alert notification: your alerts are shown, click to see your alerts." id="alert-bell">
               <svg
                   width="20"
                   height="20"
@@ -91,7 +98,12 @@
                 </svg>
             </span>
           </div>
-          <div tabindex="0" aria-label="your profile settings can be changed here, click to change a setting" class="profile-name" onkeydown="handleKeyPress(event,dropDownContent.bind(null, this,'profile-sett','alert-bx'))" onclick="dropDownContent( this,'profile-sett','alert-bx' )">
+          <div
+          role="button"
+          aria-controls="profile-sett"
+          aria-haspopup="true"
+
+           tabindex="0" aria-label="your profile settings can be changed here, click to change a setting" class="profile-name" onkeydown="handleKeyPress(event,dropDownContent.bind(null,'profile-sett','alert-bx'))" onclick="dropDownContent('profile-sett','alert-bx' )">
             <h5>Davii Collections</h5>
             <div class="initials-bx">
               <span>DC</span>
@@ -100,10 +112,12 @@
         </div>
       </div>
     </nav>
-    <div class="container" onkeypress="handleKeyPress(event,removeClass())" onclick="removeClass()">
-      <div tabindex="0" class="alert-bx" id="alert-bx">
+    <div class="container" onkeypress="handleKeyPress(event,removeClass.bind(null))" onclick="removeClass()">
+      <div 
+      role="alert"
+      class="alert-bx" id="alert-bx">
         <div class="alert-hd">
-          <h5 tabindex="0">Alert</h5>
+          <h5 >Alert</h5>
           <div>
             <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path
@@ -127,13 +141,15 @@
           </div>
         </div>
         <div class="alert-input-bx">
-          <p tabindex="0">Alerts about your account and store will be shown here</p>
+          <p >Alerts about your account and store will be shown here</p>
         </div>
       </div>
-      <div tabindex="0" class="profile-sett" id="profile-sett">
+      <div
+      role="menu"
+      class="profile-sett" id="profile-sett">
         <div class="name-tag">
          <div class="initials-bx"><span>DC</span></div>
-         <h5 tabindex="0">David Collections</h5>
+         <h5>David Collections</h5>
          <span class="tester"></span>
         </div>
         <div class="stores">
@@ -143,7 +159,7 @@
                 fill="#1c181d" />
             </svg>
           </span>
-          <h5 tabindex="0">All stores</h5>
+          <h5 >All stores</h5>
         </div>
         <ul>
         <a href="https://admin.shopify.com">
@@ -181,10 +197,10 @@
               <p tabindex="0">Extend your trial for $1/month for 3 months on select plans.</p>
             </div>
             <div class="sub-btn">
-              <a tabindex="0" href="https://www.shopify.com/pricing"><button id="sub-btn" type="button">Select a plan</button></a>
+              <a tabindex="-1" href="https://www.shopify.com/pricing"><button id="sub-btn" type="button">Select a plan</button></a>
             </div>
           </div>
-          <span tabindex="0" aria-label="Click here to remove the subscribe message" onkeydown="handleKeyPress(event,removeParent.bind(null,'subscribe'))"  onclick="removeParent('subscribe')"><svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <span tabindex="0" aria-label="Click here to remove the subscribe message"a onkeydown="handleKeyPress(event,removeParent.bind(null,'subscribe'))"  onclick="removeParent('subscribe')"><svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
                 fill="#fff" />
@@ -209,7 +225,11 @@
                 </div>
               </div>
               <div class="dropcontent">
-                <span aria-label="Click this to be able to customize your store" tabindex="0" onkeypress="handleKeyPress(event,mainConDrop.bind(null,'checklist-div',this))" onclick="mainConDrop('checklist-div',this)"><svg width="30" height="30" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <span 
+                role="button"
+                aria-haspopup="true"
+                aria-controls="checklist-div"
+                aria-label="Click this to be able to customize your store" tabindex="0" onkeypress="handleKeyPress(event,mainConDrop.bind(null,'checklist-div',this))" onclick="mainConDrop('checklist-div',this)"><svg width="30" height="30" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
                       fill="#1c181d" />
@@ -217,7 +237,9 @@
                 </span>
               </div>
             </div>
-            <div class="checklist-div " id="checklist-div">
+            <div 
+            role="menu"
+            class="checklist-div " id="checklist-div">
               <ul class="checklist">
                 <div class="list-check-div list-check-div-tog">
                   <div class="col-9 list-check-div2">
